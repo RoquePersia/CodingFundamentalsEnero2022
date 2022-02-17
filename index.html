@@ -4,9 +4,75 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>CodingFundamentals</title>
 </head>
 <body>
-  <h1>A completar</h1>
+  <h1>Just Console</h1>
+  <h2>...sorry</h2>
+  <script>
+    let i; //iterador
+    let filastart = 0;
+    let columnastart = 0;
+    let filaend = 7;
+    let columnaend = 7;
+    let numero = 1;
+    let matriz = []
+    let cant = filaend*columnaend;
+
+    for (let x=0; x<filaend;x++){
+      let columnas = [];
+      for (let y=0;y<columnaend;y++){
+        columnas[y]=0;
+      }
+      matriz[x]=columnas;
+    }
+
+    while (cant>=numero){
+
+      // Completo la primer fila
+      for (i=columnastart;i<columnaend;++i){
+        matriz[filastart][i]= numero;
+        numero++;
+      }
+  
+      if (numero>cant){
+        break;
+      }
+      filastart++;
+
+      for (i=filastart;i<filaend;++i){
+        matriz[i][columnaend-1]=numero;
+        numero++;
+      }
+      columnaend--;
+      if (numero>cant){
+        break;
+      }
+      
+      for (i=columnaend-1;i>=columnastart;--i){
+        matriz[filaend-1][i]=numero;
+        numero++;
+      }
+      filaend--;
+      if (numero>cant){
+        break;
+      }
+      
+      //if (filaend>filastart){
+        
+        for (i=filaend-1;i>=filastart;--i){
+          matriz[i][columnastart]= numero;
+          numero++;
+        }
+      //}
+      columnastart++;
+      console.log (columnastart, filastart, columnaend)
+    }
+    
+
+   
+   console.log (matriz)
+
+  </script>
 </body>
 </html>
